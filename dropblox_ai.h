@@ -62,6 +62,9 @@ class Block {
  private:
   // This isn't a standard function, just used to reverse rotation when it fails.
   void unrotate();
+
+
+
 };
 
 class Board {
@@ -100,7 +103,17 @@ class Board {
   // A static method that takes in a new_bitmap and removes any full rows from it.
   // Mutates the new_bitmap in place.
   static void remove_rows(Bitmap* new_bitmap);
- 
+
  private:
   Board();
 };
+
+struct block_info {
+    int absolute_length;
+    int absolute_height;
+    int longest_side;
+    int rotation_times;
+};
+
+/* HELPER FUNCTIONS */
+struct block_info find_block_info(const Block& block);
